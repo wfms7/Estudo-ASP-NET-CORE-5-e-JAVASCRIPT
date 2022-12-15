@@ -1,0 +1,77 @@
+﻿@model IEnumerable<ApoioConsultorio.Data.Dto.ImpostoTaxa.ReadImpostoTaxaDto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+
+<div>
+
+    <div class="row align-items-start">
+
+        <div class="col-8">
+            <h1>
+                Imposto e Taxas
+            </h1>
+            <p>
+              
+            </p>
+            <table class="table">
+                <thead>
+                    <tr>
+
+                        <th>
+                            Imposto NF
+                        </th>
+                        <th>
+                           Taxa à vista
+                        </th>
+                        <th>
+                            Taxa Parcelado
+                        </th>
+
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.imposto_nf)%
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.taxa_avista)%
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.taxa_Parcelado)%
+                            </td>
+                            
+
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.Id"  class="btn btn-outline-info">Editar</a> 
+                             
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <div>
+                <div style="float: right">
+
+                </div>
+
+                <div class="justify-content-center">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

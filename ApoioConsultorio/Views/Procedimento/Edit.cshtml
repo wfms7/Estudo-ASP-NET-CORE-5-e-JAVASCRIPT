@@ -1,0 +1,193 @@
+﻿@model ApoioConsultorio.Data.Dto.Procedimento.ReadProcedimentoDto
+
+<div class="row align-items-start">
+    <div>
+    </div>
+
+    <div class="col-md-12">
+        <h4>Editar Procedimento</h4>
+
+    </div>
+
+
+    <div class="col-md-12">
+
+
+
+
+        <hr />
+        <form asp-action="Editprocedimento" asp-controller="Procedimento" data-ajax="true" data-ajax-method="POST">
+            <input type="hidden" asp-for="Id" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-row col-md-6">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <p></p>
+            <div class="form-row col-md-6">
+                <label asp-for="Tipo" class="control-label"></label>
+                <select asp-for="Tipo" class="form-select form-control" aria-label="Default select example">
+
+                    <option value="CONSULTORIO">CONSULTORIO</option>
+                    <option value="CIRURGIA">CIRURGIA</option>
+
+                </select>
+                <span asp-validation-for="Tipo" class="text-danger"></span>
+            </div>
+            <p></p>
+            <div class="form-row col-md-6">
+                <label class="control-label mr-3"> Valor Especial :</label>
+                <input type="checkbox" asp-for="especial"  value="true" />
+
+            </div>
+            <p></p>
+
+            <div class=" row ">
+                <label class="control-label col-2 mr-2">Valor à vista: </label>
+                <input asp-for="ValorAvista" class="form-control col-2 mr-3 coin" type="text" step="0.01" min="0" name="ValorAvista" id="ValorAvista" />
+
+                <span asp-validation-for="ValorAvista" class="text-danger"></span>
+
+                <label class="control-label col-2 ">Valor Parcelado: </label>
+                <input asp-for="ValorParcelado" class="form-control col-2 coin" type="text" step="0.01" min="0" name="ValorParcelado" id="ValorParcelado" />
+                <span asp-validation-for="ValorParcelado" class="text-danger"></span>
+            </div>
+
+            <p></p>
+
+
+            <p></p>
+
+            <div class=" row ">
+                <label class="control-label col-2 mr-2">Material 1: </label>
+                <input asp-for="Material_1" class="form-control col-2 mr-3" type="text" step="0.01" min="0" name="Material_1" id="Material_1" />
+
+                <span asp-validation-for="Material_1" class="text-danger"></span>
+
+                <label class="control-label col-2 ">Custo :</label>
+                <input asp-for="MaterialCustos_1" class="form-control col-2 coin" type="text" step="0.01" min="0" name="MaterialCustos_1" id="MaterialCustos_1" />
+                <span asp-validation-for="ValorParcelado" class="text-danger"></span>
+            </div>
+
+            <p></p>
+
+            <div class=" row">
+                <label class="control-label col-2 mr-2">Material 2:</label>
+                <input asp-for="Material_2" class="form-control col-2 mr-3" type="text" step="0.01" min="0" name="Material_2" id="Material_2" />
+
+                <span asp-validation-for="Material_2" class="text-danger"></span>
+
+                <label class="control-label col-2 ">Custo :</label>
+                <input asp-for="MaterialCustos_2" class="form-control col-2 coin" type="text" step="0.01" min="0" name="MaterialCustos_2" id="MaterialCustos_2" />
+                <span asp-validation-for="ValorParcelado" class="text-danger"></span>
+            </div>
+
+            <p></p>
+
+            <div class=" row ">
+                <label class="control-label col-2 mr-2">Material 3:</label>
+                <input asp-for="Material_3" class="form-control col-2 mr-3" type="text" step="0.01" min="0" name="Material_3" id="Material_3" />
+
+                <span asp-validation-for="Material_3" class="text-danger"></span>
+
+                <label class="control-label col-2 ">Custo:</label>
+                <input asp-for="MaterialCustos_3" class="form-control col-2 coin" type="text" step="0.01" min="0" name="MaterialCustos_3" id="MaterialCustos_3" />
+                <span asp-validation-for="ValorParcelado" class="text-danger"></span>
+            </div>
+
+            <p></p>
+
+            <div class=" row">
+                <label class="control-label mr-2 col-2">Material 4:</label>
+                <input asp-for="Material_4" class="form-control col-2 mr-3" type="text" step="0.01" min="0" name="Material_4" id="Material_4" />
+
+                <span asp-validation-for="Material_4" class="text-danger"></span>
+
+                <label class="control-label  col-2">Custo :</label>
+                <input asp-for="MaterialCustos_4" class="form-control col-2 coin" type="text" step="0.01" min="0" name="MaterialCustos_4" id="MaterialCustos_4" />
+                <span asp-validation-for="ValorParcelado" class="text-danger"></span>
+            </div>
+
+            <p></p>
+
+
+
+
+
+            <p></p>
+
+            <div class=" row ">
+                <label class="control-label col-2 mr-2">Valor Equipe 1:</label>
+                <input asp-for="EquipeCustos1" class="form-control col-2 mr-3 coin" type="text" step="0.01" min="0" name="EquipeCustos1" id="EquipeCustos1" />
+                <span asp-validation-for="Material_1" class="text-danger"></span>
+
+                <label class="control-label col-2 ">Valor Equipe 2:</label>
+                <input asp-for="EquipeCustos2" class="form-control col-2 mr-2 coin" type="text" step="0.01" min="0" name="EquipeCustos2" id="EquipeCustos2" />
+                <span asp-validation-for="Material_1" class="text-danger"></span>
+
+
+            </div>
+
+            <p></p>
+
+            <div class=" row ">
+                <label class="control-label col-2 mr-2">Valor Equipe 3:</label>
+                <input asp-for="EquipeCustos3" class="form-control col-2 mr-2 coin" type="text" step="0.01" min="0" name="EquipeCustos3" id="EquipeCustos3" />
+
+                <span asp-validation-for="Material_2" class="text-danger"></span>
+
+                <label class="control-label col-2 mr-2">Valor Equipe 4:</label>
+                <input asp-for="EquipeCustos4" class="form-control col-2 coin" type="text" step="0.01" min="0" name="EquipeCustos4" id="EquipeCustos4" />
+                <span asp-validation-for="ValorParcelado" class="text-danger"></span>
+            </div>
+
+            <p></p>
+
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+                <a class="btn btn-outline-info" asp-action="Index">Voltar</a>
+                <button class="btn btn-outline-info" asp-action="Calcular">Calcular</button>
+            </div>
+        </form>
+
+
+    </div>
+
+    <div class="col-md">
+        <hr />
+        <div class="form-row  ">
+            <label class="control-label col-2">Taxa à vista </label>
+            <input readonly asp-for="TaxaAvista" class="form-control col-2 mr-3 coin" name="TaxaAvista" id="TaxaAvista" />
+            <label class="control-label col-2">Imposto NF à vista </label>
+            <input readonly asp-for="ImpostoNFAvista" class="form-control col-2 coin" name="ImpostoNFAvista" id="ImpostoNFAvista" />
+
+        </div>
+        <p></p>
+        <div class="form-row  ">
+            <label class="control-label col-2">Taxa Parcelado </label>
+            <input readonly asp-for="TaxaParcelado" class="form-control col-2 mr-3 coin" name="TaxaParcelado" id="TaxaParcelado" />
+            <label class="control-label col-2">Imposto NF Parcelado </label>
+            <input readonly asp-for="ImpostoNFParcelado" class="form-control col-2 coin" name="ImpostoNFParcelado" id="ImpostoNFParcelado" />
+
+        </div>
+        <p></p>
+        <div class="form-row  ">
+            <label class="control-label col-2">Lucro à vista </label>
+            <input readonly asp-for="lucroAvista" class="form-control col-3 coin" name="lucroAvista" id="lucroAvista" />
+
+
+        </div>
+        <p></p>
+        <div class="form-row  ">
+            <label class="control-label col-2">Lucro Parcelado </label>
+            <input readonly asp-for="lucroParcelado" class="form-control col-3 coin" name="lucroParcelado" id="lucroParcelado" />
+
+
+        </div>
+
+
+    </div>
+
+</div>
+

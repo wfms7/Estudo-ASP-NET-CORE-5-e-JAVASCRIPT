@@ -1,0 +1,124 @@
+﻿
+@model IEnumerable<ApoioConsultorio.Data.Dto.Procedimento.ReadProcedimentoDto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+
+<div>
+
+    <div class="row align-items-start">
+       
+        <div class="col-12">
+            <h1>
+                Procedimento
+            </h1>
+            <p>
+                <a class="btn btn-outline-info" asp-action="Create">Novo Procedimento</a>
+            </p>
+            <div >
+                <form asp-route.nameProcedimento="#nameProcedimento" asp-controller="Procedimento" method="get">
+                    <div class="row">
+                        <label class="control-label col-3 text-right">Nome Do Procedimento:</label>
+                        <input  class=" col-6 mr-2" name="nameProcedimento" id="nameProcedimento" />
+                        <input type="submit" value="Buscar" class="btn btn-primary col-2" />
+                    </div>
+                </form>
+            </div>
+           <p></p>
+            <table class="table ">
+                <thead>
+                    <tr>
+
+                        <th>
+                            Nome
+                        </th>
+                        <th>
+                            Tipo
+                        </th>
+                        <th>
+                            Valor à vista
+                        </th>
+                        <th>
+                            Lucro à vista
+                        </th>
+                        <th>
+                            Valor Parcelado
+                        </th>
+                        <th>
+                            Lucro Parcelado
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="col-3">
+                                @Html.DisplayFor(modelItem => item.Nome)
+                            </td>
+                            <td class="col-3">
+                                @Html.DisplayFor(modelItem => item.Tipo)
+                            </td>
+                            <td class="bg-primary text-white col-3">
+                                @Html.DisplayFor(modelItem => item.ValorAvista)
+                            </td>
+                            <th class="col-3">
+                                @Html.DisplayFor(modelItem => item.lucroAvista)
+                            </th>
+                            <td class="bg-primary text-white col-3">
+                                @Html.DisplayFor(modelItem => item.ValorParcelado)
+                            </td>
+                            <th class="col-3">
+                                @Html.DisplayFor(modelItem => item.lucroParcelado)
+                            </th>
+                            <td class="col-3">
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-info">Editar</a> 
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger">Delete</a>
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+           <label>Total:</label>  <span id="totalProcedimento">@ViewBag.totalProcedimento</span>
+
+            <nav aria-label="Page navigation" hidden="true" id="navegacao">
+                <ul class="pagination" data-pagination>
+                    @*<li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>*@
+                  
+                   
+                    @*<li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>*@
+                </ul>
+            </nav>
+            
+
+            <div>
+                <div style="float: right">
+
+                </div>
+
+                <div class="justify-content-center">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/pagination.js"></script>
+
+

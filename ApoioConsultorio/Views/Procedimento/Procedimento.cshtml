@@ -1,0 +1,105 @@
+﻿
+@model IEnumerable<ApoioConsultorio.Data.Dto.Procedimento.ReadProcedimentoDto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+
+<div>
+
+    <div class="row align-items-start">
+
+        <div class="col-12">
+            <h1>
+                Consulta Procedimento
+            </h1>
+            <p>
+              
+            </p>
+            <div>
+                <form asp-route.nameProcedimento="#nameProcedimento" asp-controller="Procedimento" method="get">
+                    <div class="row">
+                        <label class="control-label col-3 text-right">Nome Do Procedimento:</label>
+                        <input class=" col-6 mr-2" name="nameProcedimento" id="nameProcedimento" />
+                        <input type="submit" value="Buscar" class="btn btn-primary col-2" />
+                    </div>
+                    <div class="form-row col-md-6">
+                        <label class="control-label mr-3"> Valor Especial:</label>
+                        <input type="checkbox" name="especial" value="true"  />
+
+                    </div>
+                </form>
+            </div>
+            <p></p>
+            <table class="table">
+                <thead>
+                    <tr>
+
+                        <th>
+                            Nome
+                        </th>
+                        <th>
+                            Tipo
+                        </th>
+                        <th>
+                            Valor à vista
+                        </th>
+                       
+                        <th>
+                            Valor Parcelado
+                        </th>
+                       
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nome)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Tipo)
+                            </td>
+                            <td class="bg-primary text-white">
+                                @Html.DisplayFor(modelItem => item.ValorAvista)
+                            </td>
+                            
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ValorParcelado)
+                            </td>
+                           
+                           
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <label>Total:</label>  <span id="totalProcedimento">@ViewBag.totalProcedimento</span>
+
+            <nav aria-label="Page navigation" hidden="true" id="navegacao">
+                <ul class="pagination" data-pagination>
+                </ul>
+            </nav>
+
+
+            <div>
+                <div style="float: right">
+
+                </div>
+
+                <div class="justify-content-center">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/pagination.js"></script>
+
+

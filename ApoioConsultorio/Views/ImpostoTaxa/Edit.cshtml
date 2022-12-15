@@ -1,0 +1,57 @@
+﻿@model ApoioConsultorio.Data.Dto.ImpostoTaxa.ReadImpostoTaxaDto
+
+
+<h1></h1>
+
+<h4>Editar Imposto e Taxa</h4>
+<hr />
+<form asp-action="EditImpsotoTaxa" asp-controller="ImpostoTaxa" data-ajax="true" data-ajax-method="POST">
+    <input type="hidden" asp-for="ativo" />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-row col-md-6">
+        <label asp-for="imposto_nf" class="control-label">Imposto Nota Fiscal</label>
+        <input asp-for="imposto_nf" class="form-control"  name="imposto_nf" id="imposto_nf"/>
+        <span asp-validation-for="imposto_nf" class="text-danger"></span>
+    </div>
+    <p></p>
+
+    <div class="form-row col-md-6">
+        <label  class="control-label"> Taxa à vista</label>
+        <input asp-for="taxa_avista" class="form-control" name="taxa_avista" id="taxa_avista" />
+        <span asp-validation-for="taxa_avista" class="text-danger"></span>
+    </div>
+    <p></p>
+    <div class="form-row col-md-6">
+        <label  class="control-label">Taxa Parcelado</label>
+        <input asp-for="taxa_Parcelado" class="form-control" name="taxa_Parcelado" id="taxa_Parcelado" />
+        <span asp-validation-for="taxa_Parcelado" class="text-danger"></span>
+    </div>
+    <p></p>
+
+    <div class="form-group">
+        <input type="submit" value="Salvar" class="btn btn-primary" />
+        <a class="btn btn-outline-info" asp-action="Index">Voltar</a>
+    </div>
+</form>
+
+
+@section Scripts
+{
+    <script src="~/js/jquery.mask.min.js"></script>
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#imposto_nf").mask("999,99", { reverse: true })
+
+            $("#taxa_Parcelado").mask("999,99", { reverse: true })
+
+            $("#taxa_avista").mask("999,99", { reverse: true })
+           
+
+
+        })
+
+    </script>
+
+}
